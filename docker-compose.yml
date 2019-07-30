@@ -1,0 +1,32 @@
+version: "2"
+services:
+    frontend: 
+        image: frontend-todo:latest
+        restart: always
+        ports:
+            - "3000:3000"
+        links:
+            - backend-crud
+        networks:
+            - appnetwork
+    backend-crud:
+         image: backend-todo-crud:latest
+         restart: always
+         ports: 
+            - "4000:4000"
+         depends_on:
+            - mongodb
+         networks: 
+            - appnetwork
+    mongodb:
+          image: mongo:latest
+          restart: always
+          container_name: mongodb
+          ports:
+            - 27017:27017
+          command: mongod --noauth --smallfiles
+          networks:
+            - appnetwork
+networks:
+    appnetwork:
+          driver: bridge
