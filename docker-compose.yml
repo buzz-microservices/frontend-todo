@@ -2,15 +2,18 @@ version: "2"
 services:
     frontend: 
         image: frontend-todo:latest
+        container_name: frontend
         restart: always
         ports:
             - "3000:3000"
         links:
             - backend-crud
+            - backend-location
         networks:
             - appnetwork
     backend-crud:
          image: backend-todo-crud:latest
+         container_name: backend_crud
          restart: always
          ports: 
             - "4000:4000"
@@ -25,6 +28,16 @@ services:
           ports:
             - 27017:27017
           command: mongod --noauth --smallfiles
+          networks:
+            - appnetwork
+    backend-location:
+          image: backend-location:latest
+          restart: always
+          container_name: backend-location 
+          ports:
+            - 8081:8081
+          volumes:
+            - ~/webinar-02/backend-location/src/main/resources/application.properties:/config/application.properties
           networks:
             - appnetwork
 networks:
