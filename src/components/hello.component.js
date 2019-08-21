@@ -2,23 +2,30 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 export default class hello extends Component {
+  _isMounted = false;
     state = {
         message: ''
       }
       componentDidMount() {
+        this._isMounted = true;
         /**
         * 'http://localhost:8081/location'
         */
-        axios.get('http://backend-location.cje:8081/location')
+        axios.get('http://35.225.144.2:8081/location')
           .then(res => {
+            if (this._isMounted) {
               console.log(res);
             this.setState({message: "Hello! you are in " + res.data[0].city + ", " +res.data[0].country_name}) ;
+            }
           })
           .catch(function(error) {
             console.log(error)
+          
         })
       }
-
+      componentWillUnmount() {
+        this._isMounted = false;
+      }
 
     render() {
         return (
