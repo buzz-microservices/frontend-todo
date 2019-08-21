@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactLoading from 'react-loading';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -11,11 +12,12 @@ import Hello from "./components/hello.component";
 import logo from "./logo.png";
 
 class App extends Component {
+
   render() {
     return (
       <Router>
+        <ReactLoading height={667} width={375} delay={200}/>
         <div className="container">
-          
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="https://cloudbees.com" target="_blank">
               <img src={logo} width="20" height="25" alt="cloudbees.com" />
