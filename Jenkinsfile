@@ -19,6 +19,10 @@ pipeline {
                         checkout scm
                         sh 'npm install'
 		                stash includes: 'Dockerfile', name: 'Dockerfile'
+                        script{
+		                version = sh(returnStdout: true, script: "node -p "require('./package.json').version"")
+ 		                }
+                         echo "App Version: ${version}"
                     }
                 }
             }
