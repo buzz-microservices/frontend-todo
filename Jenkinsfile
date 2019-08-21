@@ -20,7 +20,8 @@ pipeline {
                         sh 'npm install'
 		                stash includes: 'Dockerfile', name: 'Dockerfile'
                         script{
-		                version = sh(returnStdout: true, script: "node -e \\\"console.log(require('./package.json').version);\\\"")
+                        command = "node -e "console.log(require('./package.json').version);""
+		                version = sh(returnStdout: true, script: ${command})
  		                }
                          echo "App Version: ${version}"
                     }
@@ -31,7 +32,7 @@ pipeline {
                         container('node') {
                         sh 'CI=true npm test'
                     }
-                                 script{
+                    script{
                    commitHash = sh(returnStdout: true, script: "git rev-parse HEAD | cut -c1-7 | tr -d '\n'")
                  }
             }
