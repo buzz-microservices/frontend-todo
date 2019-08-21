@@ -30,9 +30,14 @@ export default class hello extends Component {
 
     render() {
       if(this.state.message.length==0)
-      return(      <ReactLoading type={'bars'} color={'#3186eb'} delay={2000}/>        );
+      return(   
+      <div className="jumbotron jumbotron-fluid">
+      <div className="container">
+      <ReactLoading type="cylon" color="#485087" delay={0} /> 
+      </div>
+          </div>   
+         );
         return (
-
           <div className="jumbotron jumbotron-fluid">
           <div className="container">
           <h1 className="display-4"> {this.state.message}</h1>
