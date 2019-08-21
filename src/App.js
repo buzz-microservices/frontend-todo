@@ -15,8 +15,8 @@ class App extends Component {
 
   render() {
     return (
+      <ReactLoading type={bars} color={080808} delay={200}/>
       <Router>
-        <ReactLoading height={667} width={375} delay={200}/>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="https://cloudbees.com" target="_blank">
