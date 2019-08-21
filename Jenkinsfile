@@ -5,19 +5,39 @@ pipeline {
     skipDefaultCheckout true
   }
   stages {
-        stage('Install') {
+    stage('Tests') {
 	 agent {
             kubernetes {
                 label 'node'
                 yamlFile 'pod-templates/node-pod.yaml'
                 }
             }	
-            steps {
-              container('node') {
-                checkout scm
-                sh 'npm install'
-		        stash includes: 'Dockerfile', name: 'Dockerfile'
-              }
+            stages{
+                stage('Install'){
+                    steps {
+                        container('node') {
+                        checkout scm
+                        sh 'npm install'
+		                stash includes: 'Dockerfile', name: 'Dockerfile'
+                    }
+                }
+            }
+            stage('Test'){
+                    steps {
+                        container('node') {
+                        sh 'CI=true npm test'
+                    }
+                                 script{
+                   commitHash = sh(returnStdout: true, script: "git rev-parse HEAD | cut -c1-7 | tr -d '\n'")
+                 }
+            }
+            post {
+                always {
+                   echo "done"     
+                }
+                }
+            }
+
 	    }
         }
         stage('Test') { 
