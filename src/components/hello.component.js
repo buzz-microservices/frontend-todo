@@ -6,7 +6,10 @@ export default class hello extends Component {
         message: ''
       }
       componentDidMount() {
-        axios.get('http://localhost:8081/location')
+        /**
+        * 'http://localhost:8081/location'
+        */
+        axios.get('backend-location.cje:8081/location')
           .then(res => {
               console.log(res);
             this.setState({message: "Hello! you are in " + res.data[0].city + ", " +res.data[0].country_name}) ;
