@@ -8,7 +8,7 @@ pipeline {
         stage('Install') {
 	 agent {
             kubernetes {
-                label 'maven'
+                label 'node'
                 yamlFile 'pod-templates/node-pod.yaml'
                 }
             }	
@@ -23,7 +23,7 @@ pipeline {
         stage('Test') { 
          agent {
             kubernetes {
-                label 'maven'
+                label 'node'
                 yamlFile 'pod-templates/node-pod.yaml'
                 }
             }
