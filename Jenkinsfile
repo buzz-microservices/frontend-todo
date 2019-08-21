@@ -28,7 +28,7 @@ pipeline {
                 }
             }
             steps {
-              container('maven') {
+              container('node') {
                 checkout scm
                 sh 'CI=true npm test'
               }
