@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ReactLoading from 'react-loading';
 
 export default class hello extends Component {
   _isMounted = false;
@@ -29,7 +30,7 @@ export default class hello extends Component {
 
     render() {
       if(this.state.message.length==0)
-      return null;
+      return(      <ReactLoading type={'bars'} color={'#3186eb'} delay={2000}/>        );
         return (
 
           <div className="jumbotron jumbotron-fluid">

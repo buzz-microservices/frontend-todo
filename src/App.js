@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactLoading from 'react-loading';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -15,7 +14,6 @@ class App extends Component {
 
   render() {
     return (
-      <ReactLoading type={bars} color={080808} delay={200}/>
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
