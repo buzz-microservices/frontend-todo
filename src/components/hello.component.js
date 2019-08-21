@@ -28,13 +28,15 @@ export default class hello extends Component {
       }
 
     render() {
+      if(!message=='')
+      return null;
         return (
-            
-<div className="jumbotron jumbotron-fluid">
-  <div className="container">
-    <h1 className="display-4"> {this.state.message}</h1>
-  </div>
-</div> 
+
+          <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+          <h1 className="display-4"> {this.state.message}</h1>
+          </div>
+          </div> 
 
 
         );
