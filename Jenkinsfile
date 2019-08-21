@@ -40,28 +40,6 @@ pipeline {
 
 	    }
         }
-        stage('Test') { 
-         agent {
-            kubernetes {
-                label 'node'
-                yamlFile 'pod-templates/node-pod.yaml'
-                }
-            }
-            steps {
-              container('node') {
-                checkout scm
-                sh 'CI=true npm test'
-              }
-             script{
-                   commitHash = sh(returnStdout: true, script: "git rev-parse HEAD | cut -c1-7 | tr -d '\n'")
-                 }
-            }
-            post {
-                always {
-                   echo "done"     
-                }
-            }
-        }
         stage('Build Docker Image') {
          agent {
             kubernetes {
