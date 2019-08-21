@@ -28,7 +28,7 @@ export default class hello extends Component {
       }
 
     render() {
-      if(this.state.message.length>0)
+      if(this.state.message.length==0)
       return null;
         return (
 
