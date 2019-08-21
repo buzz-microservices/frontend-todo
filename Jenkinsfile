@@ -20,7 +20,9 @@ pipeline {
                         sh 'npm install'
 		                stash includes: 'Dockerfile', name: 'Dockerfile'
                         script{
-		                version = sh(returnStdout: true, script: "jq -r '.version' package.json")
+		                version = sh(returnStdout: true, script: """
+                        node -pe "require('./package.json').version"
+                        """)
  		                }
                          echo "App Version: ${version}"
                     }
