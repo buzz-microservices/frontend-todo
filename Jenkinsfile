@@ -21,7 +21,7 @@ pipeline {
 		                stash includes: 'Dockerfile', name: 'Dockerfile'
                         script{
 		                version = sh(returnStdout: true, script: """
-                        node -pe "require('./package.json').version"
+                        node -pe "require('./package.json').version" | xargs
                         """)
  		                }
                          echo "App Version: ${version}"
