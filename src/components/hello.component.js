@@ -28,7 +28,7 @@ export default class hello extends Component {
       }
 
     render() {
-      if(!message=='')
+      if(this.message== '')
       return null;
         return (
 
