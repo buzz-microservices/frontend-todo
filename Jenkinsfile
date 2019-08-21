@@ -52,7 +52,7 @@ pipeline {
                 unstash 'Dockerfile'
                 withEnv(['PATH+EXTRA=/busybox:/kaniko']) {
             	sh """#!/busybox/sh
-            	executor -f ${pwd()}/Dockerfile -c git://github.com:buzz-microservices/frontend-todo.git -d gcr.io/na-csa-msuarez/frontend-todo:${BUILD_NUMBER} -d gcr.io/na-csa-msuarez/frontend-todo:${commitHash} -d gcr.io/na-csa-msuarez/frontend-todo:latest
+            	executor -f ${pwd()}/Dockerfile -c git://github.com/buzz-microservices/frontend-todo.git -d gcr.io/na-csa-msuarez/frontend-todo:${BUILD_NUMBER} -d gcr.io/na-csa-msuarez/frontend-todo:${commitHash} -d gcr.io/na-csa-msuarez/frontend-todo:latest
                 """
                    }
               }
