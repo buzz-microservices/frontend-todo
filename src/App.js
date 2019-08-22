@@ -18,7 +18,7 @@ class App extends Component {
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="https://jenkins.io" target="_blank" rel="noopener noreferrer">
-              <img src={logo} width="20" height="25" alt="cloudbees.com" />
+              <img src={logo} width="18" height="25" alt="jenkins.io" />
             </a>
             <Link to="/" className="navbar-brand">Todo App</Link>
             <div className="collapse navbar-collapse">

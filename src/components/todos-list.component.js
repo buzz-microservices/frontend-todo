@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ReactLoading from 'react-loading';
+
 
 const Todo = props => (
     <tr>
@@ -53,6 +55,11 @@ export default class TodosList extends Component {
     }
 
     render() {
+        if(!this.state.todos.length)
+        return( 
+            <ReactLoading type="bars" color="#485087" delay={0} /> 
+        )
+        
         return (
             <div>
                 <h3>Todos List</h3>
