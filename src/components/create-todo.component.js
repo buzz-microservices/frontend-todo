@@ -48,7 +48,7 @@ export default class CreateTodo extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        axios.get('http://34.68.234.46:8081/location')
+        axios.get('http://35.225.144.2:8081/location')
         .then(res => {
         console.log(res);
         console.log(res.data[0].timeZoneId);
@@ -71,7 +71,7 @@ export default class CreateTodo extends Component {
             todo_timezone: this.state.todo_timezone
         }
 
-        axios.post('http://34.68.234.46:4000/todos/add', newTodo)
+        axios.post('http://l34.68.234.46:4000/todos/add', newTodo)
             .then(res => console.log(res.data));
 
         this.setState({
