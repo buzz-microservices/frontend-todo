@@ -29,7 +29,7 @@ export default class hello extends Component {
       }
 
     render() {
-      if(this.state.message.length==0)
+      if(this.state.message.length===0)
       return(   
       <div className="jumbotron jumbotron-fluid">
       <div className="container">
