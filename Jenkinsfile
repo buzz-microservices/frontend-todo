@@ -25,6 +25,7 @@ pipeline {
                         """)
  		                }
                          echo "App Version: ${version}"
+                   }
                         withCredentials([string(credentialsId: 'slack', variable: 'slack_token')]) {
                             sh """
                                 curl -X POST -H "Content-Type: application/json" \
@@ -32,7 +33,6 @@ pipeline {
                                 "https://development-hrw4460.slack.com/services/hooks/jenkins-ci?token=$slack_token"
                                 """
                         }
-                   }
               }
                     }
                 
