@@ -31,6 +31,7 @@ pipeline {
                                 -d '{"text":"'"$JOB_NAME"' - #'"$BUILD_NUMBER"' Completed - '"$BUILD_URL"'"}' \
                                 "https://development-hrw4460.slack.com/services/hooks/jenkins-ci?token=$slack_token"
                                 """
+                        }
                    }
               }
                     }
