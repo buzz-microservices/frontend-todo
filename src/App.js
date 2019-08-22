@@ -17,7 +17,7 @@ class App extends Component {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="https://cloudbees.com" target="_blank">
+            <a className="navbar-brand" href="https://jenkins.io" target="_blank">
               <img src={logo} width="20" height="25" alt="cloudbees.com" />
             </a>
             <Link to="/" className="navbar-brand">Todo App</Link>
