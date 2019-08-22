@@ -35,8 +35,8 @@ pipeline {
                    }
               }
                     }
-                }
-            }
+                
+            
             stage('Test'){
                     steps {
                         container('node') {
@@ -99,7 +99,7 @@ pipeline {
                    }
             }
               }
-            }
+            
         
     }
 }
