@@ -5,7 +5,7 @@ pipeline {
     skipDefaultCheckout true
   }
   stages {
-    stage('Tests') {
+    stage('Acquiring pod') {
 	 agent {
             kubernetes {
                 label 'node'
