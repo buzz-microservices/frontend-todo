@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
+var emoji = require('node-emoji');
 
 export default class hello extends Component {
   _isMounted = false;
@@ -16,7 +17,7 @@ export default class hello extends Component {
           .then(res => {
             if (this._isMounted) {
               console.log(res);
-            this.setState({message: "Hello! you are in " + res.data[0].city + ", " +res.data[0].country_name}) ;
+            this.setState({message: "Hello! you are in " + res.data[0].city + ", " +res.data[0].country_name + " "+ emoji.get(res.data[0].country_name)}) ;
             }
           })
           .catch(function(error) {
