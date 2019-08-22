@@ -56,12 +56,12 @@ export default class CreateTodo extends Component {
         //time = new Date(time);
         console.log(' time: '+time.toLocaleString())
         this.setState({todo_timezone:time + ' -TZ:' +res.data[0].timeZoneId}) ;
-        console.log(`Form submitted:`);
-        console.log(`Todo Description: ${this.state.todo_description}`);
-        console.log(`Todo Responsible: ${this.state.todo_responsible}`);
-        console.log(`Todo Priority: ${this.state.todo_priority}`);
-        console.log(`Todo Completed: ${this.state.todo_completed}`);
-        console.log(`Todo Timezone: ${this.state.todo_timezone}`);
+        console.log('Form submitted:');
+        console.log('Todo Description: ${this.state.todo_description}');
+        console.log('Todo Responsible: ${this.state.todo_responsible}');
+        console.log('Todo Priority: ${this.state.todo_priority}');
+        console.log('Todo Completed: ${this.state.todo_completed}');
+        console.log('Todo Timezone: ${this.state.todo_timezone}');
 
         const newTodo = {
             todo_description: this.state.todo_description,
@@ -71,7 +71,7 @@ export default class CreateTodo extends Component {
             todo_timezone: this.state.todo_timezone
         }
 
-        axios.post('http://l34.68.234.46:4000/todos/add', newTodo)
+        axios.post('http://104.197.175.12:4000/todos/add', newTodo)
             .then(res => console.log(res.data));
 
         this.setState({

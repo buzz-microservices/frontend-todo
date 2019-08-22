@@ -25,7 +25,7 @@ export default class TodosList extends Component {
 
     componentDidMount() {
         this._isMounted = true;
-        axios.get('http://34.68.234.46:4000/todos/')
+        axios.get('http://104.197.175.12:4000/todos/')
             .then(response => {
                 this.setState({todos: response.data});
             })
@@ -35,7 +35,7 @@ export default class TodosList extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        axios.get('http://34.68.234.46:4000/todos/')
+        axios.get('http://104.197.175.12:4000/todos/')
         .then(response => {
             if(this.props.todos !== prevProps.todos){
             this.setState({todos: response.data});
