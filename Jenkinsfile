@@ -25,6 +25,14 @@ pipeline {
                         """)
  		                }
                          echo "App Version: ${version}"
+                        withCredentials([string(credentialsId: 'slack', variable: 'slack_token')]) {
+                            sh """
+                                curl -X POST -H "Content-Type: application/json" \
+                                -d '{"text":"'"$JOB_NAME"' - #'"$BUILD_NUMBER"' Completed - '"$BUILD_URL"'"}' \
+                                "https://development-hrw4460.slack.com/services/hooks/jenkins-ci?token=$slack_token"
+                                """
+                   }
+              }
                     }
                 }
             }
@@ -81,9 +89,13 @@ pipeline {
 		        sh "helm repo add chartmuseum http://34.67.152.26:8080"
                 sh "helm upgrade frontend-todo chartmuseum/frontend-todo -i --namespace cje --set image.tag=${version}-${commitHash}"
                    }
-                // curl -X POST -H "Content-Type: application/json" \
-                // -d '{"text":"'"$JOB_NAME"' - #'"$BUILD_NUMBER"' Failed on '"$GIT_BRANCH"' branch - '"$BUILD_URL"'"}' \
-                // "https://[domain].slack.com/services/hooks/jenkins-ci?token=$SLACK_API_TOKEN"
+                withCredentials([string(credentialsId: 'slack', variable: 'slack_token')]) {
+                sh """
+                    curl -X POST -H "Content-Type: application/json" \
+                 -d '{"text":"'"$JOB_NAME"' - #'"$BUILD_NUMBER"' Completed - '"$BUILD_URL"'"}' \
+                  "https://development-hrw4460.slack.com/services/hooks/jenkins-ci?token=$slack_token"
+                  """
+                   }
               }
             }
         
