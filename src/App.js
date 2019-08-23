@@ -6,6 +6,7 @@ import CreateTodo from "./components/create-todo.component";
 import EditTodo from "./components/edit-todo.component";
 import TodosList from "./components/todos-list.component";
 import Hello from "./components/hello.component";
+import packageJson from '../package.json';
 
 
 import logo from "./logo.png";
@@ -20,7 +21,7 @@ class App extends Component {
             <a className="navbar-brand" href="https://jenkins.io" target="_blank" rel="noopener noreferrer">
               <img src={logo} width="18" height="25" alt="jenkins.io" />
             </a>
-            <Link to="/" className="navbar-brand">Todo App</Link>
+            <Link to="/" className="navbar-brand">Todo App v.{packageJson.version}</Link>
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
