@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReactLoading from 'react-loading';
 var emoji = require('node-emoji');
 
+
  
 export default class hello extends Component {
   _isMounted = false;
@@ -16,6 +17,7 @@ export default class hello extends Component {
         /**
         * 'http://localhost:8081/location'
         */
+       console.log(process.env.REACT_APP_BACKEND_LOCATION_URL)
         axios.get(process.env.REACT_APP_BACKEND_LOCATION_URL)
           .then(res => {
             if (this._isMounted) {
