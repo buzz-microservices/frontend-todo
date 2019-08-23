@@ -10,7 +10,7 @@ spec:
         memory: "1Gi"
     envFrom:
     - configMapRef:
-        name: frontend-todo-test-config
+        name: frontend-test-config
     command:
     - cat
     tty: true
