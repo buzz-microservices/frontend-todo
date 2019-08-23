@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-config
 data:
-  REACT_APP_BACKEND_LOCATION_URL: http://35.225.144.2:8081/location
-  REACT_APP_BACKEND_TODO_CRUD_URL: http://104.197.175.12:4000/todos
+  REACT_APP_BACKEND_LOCATION_URL: "http://35.225.144.2:8081/location"
+  REACT_APP_BACKEND_TODO_CRUD_URL: "http://104.197.175.12:4000/todos"
