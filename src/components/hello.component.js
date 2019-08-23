@@ -3,8 +3,7 @@ import axios from 'axios';
 import ReactLoading from 'react-loading';
 var emoji = require('node-emoji');
 
-
-
+ 
 export default class hello extends Component {
   _isMounted = false;
     state = {

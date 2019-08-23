@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-const {
-    BACKEND_TODO_CRUD_URL
-  } = process.env;
+
 
 const Todo = props => (
     <tr>
@@ -25,7 +23,6 @@ export default class TodosList extends Component {
         this.state = {todos: []};
 
     }
-
 
     componentDidMount() {
         this._isMounted = true;
