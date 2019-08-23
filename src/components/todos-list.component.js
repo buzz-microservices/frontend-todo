@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-
+const {
+    BACKEND_TODO_CRUD_URL
+  } = process.env;
 
 const Todo = props => (
     <tr>
@@ -27,7 +29,7 @@ export default class TodosList extends Component {
 
     componentDidMount() {
         this._isMounted = true;
-        axios.get('http://104.197.175.12:4000/todos/')
+        axios.get(process.env.REACT_APP_BACKEND_TODO_CRUD_URL)
             .then(response => {
                 this.setState({todos: response.data});
             })
@@ -37,7 +39,7 @@ export default class TodosList extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        axios.get('http://104.197.175.12:4000/todos/')
+        axios.get(process.env.REACT_APP_BACKEND_TODO_CRUD_URL)
         .then(response => {
             if(this.props.todos !== prevProps.todos){
             this.setState({todos: response.data});

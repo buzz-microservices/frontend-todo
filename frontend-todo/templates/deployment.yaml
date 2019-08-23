@@ -24,18 +24,29 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+        - name: REACT_APP_BACKEND_LOCATION_URL
+          valueFrom:
+            configMapKeyRef:
+              key: REACT_APP_BACKEND_LOCATION_URL
+              name: {{ .Release.Name }}-config
+        - name: REACT_APP_BACKEND_TODO_CRUD_URL
+          valueFrom:
+            configMapKeyRef:
+              key: REACT_APP_BACKEND_TODO_CRUD_URL
+              name: {{ .Release.Name }}-config
           ports:
             - name: http
               containerPort: 3000
               protocol: TCP
-#          livenessProbe:
-#            httpGet:
-#              path: /
-#              port: http
-#          readinessProbe:
-#            httpGet:
-#              path: /
-#              port: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

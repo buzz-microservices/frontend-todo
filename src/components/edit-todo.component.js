@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+
 export default class EditTodo extends Component {
 
     constructor(props) {
@@ -21,7 +22,7 @@ export default class EditTodo extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://104.197.175.12:4000/todos/'+this.props.match.params.id)
+        axios.get(process.env.REACT_APP_BACKEND_TODO_CRUD_URL+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     todo_description: response.data.todo_description,
@@ -67,7 +68,7 @@ export default class EditTodo extends Component {
             todo_priority: this.state.todo_priority,
             todo_completed: this.state.todo_completed
         };
-        axios.put('http://104.197.175.12:4000/todos/update/'+this.props.match.params.id, obj)
+        axios.put(process.env.REACT_APP_BACKEND_TODO_CRUD_URL+'/update/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         this.props.history.push('/todos');

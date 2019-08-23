@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+
 export default class CreateTodo extends Component {
 
     constructor(props) {
@@ -48,7 +49,7 @@ export default class CreateTodo extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        axios.get('http://35.225.144.2:8081/location')
+        axios.get(process.env.REACT_APP_BACKEND_LOCATION_URL)
         .then(res => {
         console.log(res);
         console.log(res.data[0].timeZoneId);
@@ -70,8 +71,7 @@ export default class CreateTodo extends Component {
             todo_completed: this.state.todo_completed,
             todo_timezone: this.state.todo_timezone
         }
-
-        axios.post('http://104.197.175.12:4000/todos/add', newTodo)
+        axios.post(process.env.REACT_APP_BACKEND_TODO_CRUD_URL+'/add', newTodo)
             .then(res => console.log(res.data));
 
         this.setState({
