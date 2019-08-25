@@ -30,6 +30,7 @@ export default class EditTodo extends Component {
                     todo_priority: response.data.todo_priority,
                     todo_completed: response.data.todo_completed
                 })
+                console.log(response.data);
             })
             .catch(function(error) {
                 console.log(error)
