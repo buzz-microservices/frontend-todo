@@ -22,7 +22,7 @@ export default class EditTodo extends Component {
     }
 
     componentDidMount() {
-        axios.get(process.env.REACT_APP_BACKEND_TODO_CRUD_URL+this.props.match.params.id)
+        axios.get(process.env.REACT_APP_BACKEND_TODO_CRUD_URL+"/"+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     todo_description: response.data.todo_description,
