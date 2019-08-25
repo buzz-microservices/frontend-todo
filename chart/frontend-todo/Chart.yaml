@@ -1,4 +1,4 @@
 apiVersion: v1
 description: Frontend app in React
 name: frontend-todo
-version: 0.0.1
+version: 0.0.2
