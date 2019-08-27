@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and started from https://codingthesmartway.com/mern-stack-crash-course
 
 ## Available Scripts
 
